@@ -1,0 +1,51 @@
+<div class="navheader">
+    <div class="center catnav container">
+        {$this->partial('category\nav')}
+        <div class="schsidebar">{$this->partial('search\global')}</div>
+    </div>
+</div>
+<div class="banner">
+    <div class="category_img">
+        {$cImg="images/{$category->c_folder}/{$category->c_folder}_top.png"}
+        <img
+            src="{$this->basepath({$cImg})}"/>
+    </div>
+</div>
+<div class="catheader">
+    <div class="container">
+        <div class="cattitle">
+            {$csImg="images/{$category->c_folder}/{$category->c_folder}_small.png"}
+            <img
+                src="{$this->basepath($csImg)}"/>
+            <span class="title">{$category->c_code}</span>
+        </div>
+        <div class="cat-select">
+               {$param=[['key'=>'id','value'=>1],['key'=>'curPage','value'=>1]]}
+
+            <select>
+                {$this->partial('selopt')}
+            </select>
+        </div>
+    </div>
+</div>
+<div class="wp">
+    <div class="container">
+        {foreach $products as $product}
+            <div class="p_block">
+                <div class="p_img">
+                    {$pImg="images/{$category->c_folder}/{$product['sku']}/{$product['sku']}.png"}
+                    <a href="{$this->url('product',['id'=>$product['p_id'],'page'=>1])}"><img src="{$this->basepath($pImg)}"></a>
+                 </div>
+                 <div class="p_title">
+                     <span>{$this->translate('Product number')}</span>
+                     <a href="{$this->url('product',['id'=>$product['p_id'],'page'=>1])}" class="title">
+                         {$product['sku']}
+                         </a>
+                  </div>
+            </div>
+        {/foreach}
+    </div>
+    <div class="container">
+        {$this->paginationControl($this->paginator,'all','paginator\control',['id'=>$category->c_id,'lang'=>$lang,'route'=>'category'])}
+        </div>
+</div>

@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.nav-container {
+    margin: 0;
+    background: #FFFFFF;
+    height: 70px;
+}
+
+.nav-container .navbar-brand {
+    padding: 0;
+}
+
+.languages {
+    display: block;
+    float: right;
+}
+
+.languages dt, .languages dd {
+    float: left;
+    min-width: 60px;
+    text-align: center;
+}
+
+.sch_from {
+    width: 100%;
+    margin-top: 60px;
+}
+
+.sch_from .scr_module {
+    margin: 0 auto;
+    width: 350px;
+    height: 42px;
+    border: 5px solid #ccc;
+    border-radius: 2px;
+}
+
+.sch_from .search_txt {
+    float: left;
+    width: 100%;
+    height: 32px;
+    border: 0;
+    text-indent: 5px;
+    font-size: 14px;
+    font-family: OpenSans-Bold, "LiHei", "兰亭细黑";
+    outline: none;
+}
+
+.sch_from .sbtn-icon {
+    width: 32px;
+    height: 30px;
+    display: block;
+    background: url(../img/search.png);
+}
+label.hotkey{
+    float: left;
+    margin: 10px;
+    background: #f8f8f8;
+    padding: 2px;
+}
+.header-catnav{
+    float: left;
+    margin-left: 50px;
+    height: 40px;
+    line-height: 40px;
+}
+.header-catnav  li.active{
+    border: 1px solid #ccc;
+    height: 32px;
+    position: relative;
+    padding-top: 4px;
+    height: 38px;
+    background: #E9EAEB;
+}
+.header-catnav .sicon{
+    float: left;
+    height: 30px;
+}
+.banner .category_img img{
+    width: 100%;
+    min-height: 250px;
+}
+.catheader{
+    height: 45px;
+    overflow: hidden;
+    line-height: 45px;
+}
+.cattitle{
+  float: left;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: OpenSans-Semibold,"LiHei","兰亭细黑";
+    font-size: 18px;
+    color: #717171;
+    text-transform: capitalize;
+}
+.cattitle .title{
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: OpenSans-Semibold,"LiHei","兰亭细黑";
+    font-size: 18px;
+    color: #717171;
+    text-transform: capitalize;
+}
+.cat-select{
+    float: right;
+    margin-right: 10px;
+}
+.cat-select select{
+    width: 160px;
+    height: 26px;
+    font-size: 13px;
+    font-family: OpenSans-Semibold,"LiHei","兰亭细黑";
+}
+.cat-select select option{
+    height: 20px;
+}
+.header-catnav li a span{
+    float: left;
+    display: inline-block;
+    height: 30px;
+    vertical-align: middle;
+    line-height: 30px;
+}
+.schsidebar{
+    float: right;
+    width: 210px;
+    height: 30px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+.schsidebar .scr_module{
+    margin: 0 auto;
+    width: 203px;
+    height: 30px;
+    border: none;
+    background-image: url(../img/sch_bar.png);
+    background-repeat: no-repeat;
+}
+.schsidebar .search_txt{
+    float: left;
+    height: 20px;
+    border: 0;
+    font-size: 10px;
+    text-indent: 15px;
+    font-family: OpenSans-Bold;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background: none;
+    width: 175px;
+    margin-top: 4px;
+    margin-left: 4px;
+    outline: none;
+     border: none;
+}
+.schsidebar .sbtn{
+    width: 20px;
+    height: 20px;
+    float: right;
+    position: relative;
+    outline: none;
+    top: -40px;
+    left: -5px;
+    padding: 80px 0 0 0;
+    border: none;
+    background: none;
+}
+.schsidebar .sbtn-icon{
+    width: 20px;
+    height: 20px;
+}
+.sch_from .sbtn {
+    position: relative;
+    top: -28px;
+    float: right;
+    display: block;
+    margin-left: 5px;
+    width: 26px;
+    height: 24px;
+    border: 0;
+    left: -10px;
+    outline: none;
+    background: none;
+}
+
+.navheader {
+    width: 100%;
+    height: 40px;
+    background: url(../img/header_bg.png);
+}
+
+.navheader ul li {
+    display: block;
+    float: left;
+    font-size: 14px;
+    min-width: 80px;
+    height: 40px;
+    text-transform: capitalize;
+    font-family: OpenSans-Semibold, "LiHei", "兰亭细黑";
+}
+
+.catlist {
+    width: 720px;
+}
+
+.catlist .category {
+    float: left;
+    overflow: hidden;
+    margin: 10px;
+    width: 276px;
+    height: 276px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 18px;
+    font-family: Times New Roman;
+}
+
+.category .category_img img {
+    width: 276px;
+    height: 276px;
+
+}
+.p_block{
+    float: left;
+    margin-top: 10px;
+    padding: 10px;
+    width: 220px;
+    height: 270px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 30px;
+}
+.p_block .p_img{
+    width: 240px;
+    height: 234px;
+    background: #EBEBEB;
+    text-align: center;
+    border: #E0E0E0 1px solid;
+    vertical-align: middle;
+}
+.p_block .p_img img{
+    margin-top: 40px;
+    height: 150px;
+    border: 0;
+}
+.p_block .p_title{
+    margin-top: 8px;
+    font-family: OpenSans-Semibold,"LiHei","兰亭细黑";
+    color: #7C7C7C;
+    font-size: 14px;
+}
+.p_block .p_title .title{
+    font-size: 16px;
+    color: #747474;
+}
+.wh{
+
+}
+.wh .header-tiper{
+    position: absolute;
+    width: 750px;
+
+}

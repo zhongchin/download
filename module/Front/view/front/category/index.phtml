@@ -1,0 +1,51 @@
+<div class="navheader">
+    <div class="center catnav container">
+        <?php echo $this->partial('category\nav'); ?>
+        <div class="schsidebar"><?php echo $this->partial('search\global'); ?></div>
+    </div>
+</div>
+<div class="banner">
+    <div class="category_img">
+        <img
+            src="<?php echo $this->basepath('images/' . $category->c_folder . '/' . $category->c_folder) . '_top.png'; ?>"/>
+    </div>
+</div>
+<div class="catheader">
+    <div class="container">
+        <div class="cattitle">
+            <img
+                src="<?php echo $this->basepath('images/' . $category->c_folder . '/' . $category->c_folder) . '_small.png'; ?>"/>
+            <span class="title"><?php echo $category->c_code; ?></span>
+        </div>
+        <div class="cat-select">
+            <select>
+                <?php echo $this->partial('selopt', array(
+                    'id' => $category->c_id,
+                    'curPage' => $curPage
+                ));?>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="wp">
+    <div class="container">
+        <?php foreach ($products as $product) {
+          ?>
+            <div class="p_block">
+                <div class="p_img">
+                    <a href="<?php echo $this->url('product',array('id'=>$product['p_id'],'page'=>1));?>"><img src="<?php echo $this->basepath('images/'.$category->c_folder.'/'.$product['sku'].'/'.$product['sku'].'.png');?>"></a>
+                 </div>
+                 <div class="p_title">
+                     <span><?php echo $this->translate('Product number');?></span>
+                     <a href="<?php echo $this->url('product',array('id'=>$product['p_id'],'page'=>1));?>" class="title">
+                         <?php echo $product['sku'];?>
+                         </a>
+                  </div>
+            </div>
+        <?php
+        }?>
+    </div>
+    <div class="container">
+        <?php echo $this->paginationControl($this->paginator,'all','paginator\control',array('id'=>$category->c_id,'lang'=>$lang,'route'=>'category'));?>
+        </div>
+</div>

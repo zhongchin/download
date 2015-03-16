@@ -1,0 +1,41 @@
+<?php
+return array(
+    'view_manager'=>array(
+        'template_map'=>array(
+            'common\lang'=>__DIR__.'/../view/common/lang.phtml',
+            'category\nav'=>__DIR__.'/../view/common/categorynav.phtml',
+            'search\global'=>__DIR__.'/../view/common/searchbox.phtml',
+            'selopt'=>__DIR__.'/../view/common/selopt.phtml',
+            'paginator\control'=>__DIR__.'/../view/common/paginatorcontrol.phtml',
+        )
+    ),
+    'di'=>array(
+        'services'=>array(
+            'Common\Model\LangTable'=>'Common\Model\LangTable',
+            'Common\Model\SearchKeyTable'=>'Common\Model\SearchKeyTable',
+            'Common\Model\      ProductTable'=>'Common\Model\ProductTable',
+            'Common\Model\DownLoadTable'=>'Common\Model\DownLoadTable',
+
+        ),
+        'instance'=>array(
+            'alias'=>array(
+                'smarty_engine'=>'Smarty',
+            ),
+            'Common\View\Strategy\SmartyStrategy'=>array(
+                'parameters'=>array(
+                    'renderer'=>'Common\View\Renderer\SmartyRenderer'
+                )
+            ),
+            'Common\View\Renderer\SmartyRenderer'=>array(
+                'parameters'=>array(
+                        'smarty'=>'smarty_engine'
+                )
+            ),
+            'smarty_engine'=>array(
+                'parameters'=>array(
+                    'compile_dir'=>__DIR__.'/../../../data/smarty/templates_c'
+                )
+            )
+        )
+    )
+);

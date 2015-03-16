@@ -1,0 +1,130 @@
+<div class="container-fluid">
+    <form action="{$this->url('admin-file')}" class="form-horizontal">
+        <div class="control-group portlet box blue ">
+            <div class="portlet-title">
+                <div class="caption">file upload</div>
+                <div class="tools">
+                    <a class="collapse" href="javascript:;"></a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="control-group">
+                    <label class="control-label">{$this->translate("Default")}</label>
+
+                    <div class="controls">
+                        <input type="hidden" name="files[]"/>
+                        <input type="file" name="file" class="form-control" placeholder="file" multiple/>
+                        {*
+                        <button class="btn blue" id="multifileupbtn">上传多个文件</button>
+                        *}
+                        <div class="btn-group">
+                            <button class="btn blue dropdown-toggle" id="scandirbtn" data-toggle="dropdown">扫描文件夹<span
+                                    class="caret"></span></button>
+                            <div class="dropdown-menu">
+                                <input type="text" class="" id="dirpath" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <table class="table table-responsive">
+                        <tbody>
+                        <tr>
+                            <td>filename</td>
+                            <td>file size</td>
+                            <td><input type="checkbox" checked>去掉空格</td>
+                            <td>重命名</td>
+                            <td>京都条</td>
+                            <td><input type="button" class="btn yellow" value="start"/></td>
+                            <td><input type="button" class="red btn" value="cancel"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="portlet box yellow ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-reorder"></i>
+                    文件分组信息
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="control-group">
+                    <label class="control-label">文件所属分组</label>
+
+                    <div class="controls">
+                        <select>
+                            <option>smart power</option>
+                            <option>smart audio</option>
+                            <option>smart lighting</option>
+                            <option>Accessories</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">文件所属产品：</label>
+
+                    <div class="controls"><select>
+                            <option>BTV100</option>
+                            <option>BTV200</option>
+                            <option>BTV300</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portlet box grey ">
+            <div class="portlet-title ">
+                <div class="caption"><i class="icon-reorder"></i>其他信息</div>
+                <div class="tools"><a href="javascript:;" class="collapse"></a></div>
+            </div>
+            <div class="portlet-body">
+                <div class="control-group">
+                    <label class="control-label">文件的语言</label>
+
+                    <div class="controls">
+                        <select>
+                            <option>简体中文</option>
+                            <option>english</option>
+                            <option>繁体中文</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">文件信息：</label>
+
+                    <div class="controls">
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">文件类型</label>
+
+                    <div class="controls"><select>
+                            <option>quick start guide</option>
+                            <option>user manual</option>
+                            <option>firmware update</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions ">
+            <input class="btn blue" name="submit" type="submit" value="提交"/>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        $("#dirpath").click(function (evt) {
+            evt.preventDefault();
+        });
+    });
+</script>

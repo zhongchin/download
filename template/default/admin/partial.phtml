@@ -1,0 +1,49 @@
+<ul class="page-sidebar-menu">
+    <li>
+        <div class="sidebar-toggler hidden-phone"></div>
+    </li>
+    {$count=0}
+    {foreach $this->container as $page}
+    {if !$page->isVisible()||!$this->navigation()->accept($page)}
+    {continue}
+    {/if}
+    {$hasChildren=$page->hasPages()}
+    {if !$hasChildren}
+    <li {if $page->isActive()}class="active"{/if}>
+    <a href="{$page->getHref()}">
+        <i class="{$page->getClass()}"></i>
+        <span class="title">{$this->translate($page->getLabel())}</span>
+    </a>
+    </li>
+    {else}
+    <li>
+        {$display="none"}
+        {foreach $page->getPages() as $p}
+        {if $p->isActive()}
+        {$display="block"}
+        {/if}
+        {/foreach}
+        <a href="javascript:;">
+            <i class="{$page->getClass()}"></i>
+            <span class="title">{$this->translate($page->getLabel())}</span>
+            <span class="arrow {if $display=='block'}open{/if}"></span>
+        </a>
+        <ul class="sub-menu" id="page_{$count}" style="display: {$display}">
+            {foreach $page->getPages() as $child}
+            {if !$child->isVisible()||!$this->navigation()->accept($child)}
+            {continue}
+            {/if}
+            <li {if $child->isActive()}{$display=true}class="active"{/if}>
+            <a href="{$child->getHref()}" >
+                <i class="{$child->getClass()}"></i>
+                <span class="title">{$this->translate($child->getLabel())}</span>
+            </a>
+    </li>
+    {/foreach}
+</ul>
+</li>
+{/if}
+{$count=$count+1}
+{/foreach}
+
+</ul>

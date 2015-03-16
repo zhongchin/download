@@ -1,0 +1,27 @@
+<div class="navheader">
+    <div class="container">
+        <?php echo $this->partial('category\nav'); ?>
+    </div>
+</div>
+<div class="sch_from container">
+
+    <?php echo $this->partial('search\global', array('data' => $hotKeys)); ?>
+</div>
+<div class="container">
+    <div class="catlist center">
+        <?php foreach ($category as $cat) {
+            ?>
+            <div class="category" accesskey="" data-url="<?php echo $this->url("category",array("id"=>$cat['c_id']));?>">
+                <div class="category_img">
+                    <img
+                        src="<?php echo $this->basepath('images/' . $cat['c_folder'] . '/' . $cat['c_folder'] . '.png'); ?>">
+                </div>
+                <div class="category_title">
+                    <span><?php echo $cat['c_code']; ?></span>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+    </div>
+</div>

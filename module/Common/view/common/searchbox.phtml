@@ -1,0 +1,29 @@
+<div class="searchbox">
+    <form action="<?php echo $this->url('search'); ?>">
+        <div class="scr_module">
+            <div class="scr_txt">
+                <input type="text" name="search_txt" class="search_txt" placeholder="search" value="">
+            </div>
+            <button class="sbtn" value="search"><span class="sbtn-icon"></span><span>search</span></button>
+        </div>
+        <?php
+        if (isset($data) && !empty($data)) {
+            ?>
+            <div class="searchkey">
+                <?php
+                foreach ($data as $key) {
+                    ?>
+
+                    <label class="hotkey">
+                        <a href="<?php echo $this->url('search', array('id' => $key['p_id'])); ?>"><?php echo $key['keyword']; ?></a>
+                    </label>
+
+                <?php
+                }
+                ?>
+            </div>
+        <?php
+        }?>
+
+    </form>
+</div>

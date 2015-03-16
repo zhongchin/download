@@ -1,0 +1,48 @@
+<div class="navheader">
+    <div class="center catnav container">
+        {$this->partial('category\nav')}
+        <div class="schsidebar">{$this->partial('search\global')}</div>
+    </div>
+</div>
+<div class="wp">
+    <div class="wh container">
+     <ul class="header-tiper breadcrumb">
+         <li><a href="{$this->url('home')}">{$this->translate('Home')}</a></li>
+        <li><a href="{$this->url('category',['id'=>$category->c_id])}">{$category->c_code}</a></li>
+         <li><a href="<?php //echo $this->url('product',array('id'));?>">{$product['sku']}</a></li>
+     </ul>
+    </div>
+    <div class="container">
+        {$pImg="images/{$category['c_folder']}/{$category['sku']}/{$category['sku']}-top.png"}
+        <img src="{$this->basepath({$pImg})}">
+    </div>
+    <div id="doc-list" class="doc-list container">
+     <table class="table table-bordered table-responsive">
+         <tbody>
+         <tr>
+             <th>{$this->translate("filename")}</th>
+             <th>{$this->translate("language")}</th>
+             <th>{$this->translate("url")}</th>
+             <th>{$this->translate("update time")}</th>
+             <th>{$this->translate("file type")}</th>
+             <th>{$this->translate("download")}</th>
+         </tr>
+         </tbody>
+         <tbody class="dl">
+         {foreach $paginator as $doc}
+             <tr data-url="{$this->url('detail',['id'=>$doc['d_id']])}">
+                 <td>{$doc['d_code']}</td>
+                 <td>{$doc['name']}</td>
+                 <td>{$doc['d_url']}</td>
+                 <td>{$doc['d_updatetime']}</td>
+                 <td>{$doc['down_type_code']}</td>
+                 <td><a href="{$this->url('download',['id'=>$doc['d_id']])}">{$this->translate('download')}</a></td>
+             </tr>
+        {/foreach}
+         </tbody>
+         </table>
+</div>
+<div class="container">
+    {$this->paginationControl($this->paginator,'Sliding','paginator\control',['id'=>$category['p_id'],'lang'=>$lang,'route'=>'product'])}
+</div>
+    </div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <item id="title">default</item>
+    <item id="name">default</item>
+    <templatemap>
+        <map name="category\nav" path="common/categorynav.phtml"/>
+        <map name="common\lang" path="common/lang.phtml"/>
+        <map name="search\global" path="common/searchbox.phtml"/>
+        <map name="selopt" path="common/selopt.phtml"/>
+        <map name='paginator\control' path='common/paginatorcontrol.phtml'/>
+        <map name='admin\layout' path='admin/layout.phtml'/>
+        <map name="admin\layout\partial" path="admin/partial.phtml"/>
+    </templatemap>
+</root>

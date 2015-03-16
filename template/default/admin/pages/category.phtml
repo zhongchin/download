@@ -1,0 +1,93 @@
+<table class="table">
+    {foreach $categories as $cat}
+    <tr>
+        <td>{$cat['c_code']}</td>
+        <td><img src="{$this->basePath("images/{$cat['c_folder']}/{$cat['c_folder']}_top.png")}" style="width:250px;">
+        </td>
+        <td>
+            <div class="btn-group">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">编辑图片<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="">修剪图片</a></li>
+                    <li><a href="#">压缩图片</a></li>
+                    <li><a href="#" class="preview" data-img="{$this->basePath("images/{$cat['c_folder']}/{$cat['c_folder']}_top.png")}">预览图片</a></li>
+                </ul>
+
+            </div>
+        </td>
+        <td>
+            <div class="btn-file">
+                <button class="refile btn">重新上传文件</button>
+                <input type="file" class="default"/><span class="file-preview"></span></div>
+        </td>
+    </tr>
+    {/foreach}
+</table>
+<div id="preiviewImgModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <span class="title">预览图片</span>
+    </div>
+    <div class="modal-body">
+
+    </div>
+    <div class="modal-footer">
+    </div>
+</div>
+
+
+<div class="row-fluid span12">
+    <form action="{$this->url('admin-front-pages',['action'=>'category'])}" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label">{$this->translate("category")}</label>
+
+            <div class="controls">
+                <input type="text" value="smart power"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">{$this->translate("banner")}</label>
+
+            <div class="controls">
+                <img src="{$this->basePath('/images/')}"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button class="btn blue">更换图片</button>
+            </div>
+        </div>
+    </form>
+</div>
+{$this->headStyle()->captureStart()}
+.default{
+display:none;
+}
+{$this->headStyle()->captureEnd()}
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        $(".refile").click(function (evt) {
+            evt.preventDefault();
+            filename = $(this).next(".default").trigger("click");
+//           console.log(filename);
+            $(this).next('.default').trigger('change');
+        }).blur(function (evt) {
+            evt.preventDefault();
+            defaultFile = $(this).next();
+            $(this).nextAll(".file-preview").text(defaultFile[0]['value']);
+        });
+        $(".file-btn").focusin(function () {
+            $(this).find(".default").trigger("change");
+        });
+        $(".file-btn .default").change(function () {
+            console.log("hhhh");
+            $(this).next(".file-preview").text($(this)[0]['value']);
+        });
+        $(".preview").click(function(){
+            imgPath=$(this).data("img");
+            $("#preiviewImgModal").find(".modal-body").html("<img src='"+imgPath+"'>");
+            $("#preiviewImgModal").modal('show');
+        });
+
+
+    });
+</script>

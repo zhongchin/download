@@ -1,0 +1,25 @@
+<div class="navheader">
+    <div class="container">
+        {$this->partial('category\nav')}
+    </div>
+</div>
+<div class="sch_from container">
+
+    {$this->partial('search\global',['data' => $hotKeys])}
+
+</div>
+<div class="container">
+    <div class="catlist center">
+        {foreach $category as $cat}
+        <div class="category" accesskey="" data-url="{$this->url("category",["id"=>$cat['c_id']])}">
+        <div class="category_img">
+            {$cImg="images/{$cat['c_folder']}/{$cat['c_folder']}.png"}
+            <img src="{$this->basepath($cImg)}">
+        </div>
+        <div class="category_title">
+            <span>{$cat['c_code']}</span>
+        </div>
+    </div>
+    {/foreach}
+</div>
+</div>

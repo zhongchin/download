@@ -1,0 +1,60 @@
+<div class="navheader">
+    <div class="center catnav container">
+      {$this->partial('category\nav')}
+        <div class="schsidebar">{$this->partial('search\global')}</div>
+    </div>
+</div>
+<div class="wp">
+    <div class="wh container">
+        <ul class="header-tiper breadcrumb">
+            <li><a href="{$this->url('home')}">{$this->translate('Home')}</a></li>
+            <li>
+                <a href="{$this->url('category', ['id' => $category->c_id])}">{$category->c_code}</a>
+            </li>
+            <li><a href="<?php //echo $this->url('product',array('id'));?>">{$category['sku']}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        {$img="images/{$category['c_folder']}/{$category['sku']}/{$category['sku']}-waller.png"}
+        <img
+            src="{$this->basepath({$img})}">
+    </div>
+    <div class="container">
+        <div>
+            <div class="p-info">
+                <div class="p-img">
+                    {$pImg="images/{$category['c_folder']}/{$category['sku']}/{$category['sku']}.png"}
+                    <img src="{$this->basepath({$pImg})}">
+                </div>
+                <div class="p-sel"><span class="col"></span><span class="col"></span><span class="col"></span><span
+                        class="col"></span></div>
+            </div>
+            <div class="doc-info">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                       <td>{$this->translate("document name")}</td><td>{$detail['d_code']}</td>
+                    </tr>
+                    <tr>
+                        <td>{$this->translate('document belong to category')}</td><td>{$category['c_code']}</td>
+                    </tr>
+                    <tr>
+                        <td>{$this->translate('document belong to product')}</td><td><?php  ?></td>
+                    </tr>
+                    <tr>
+                        <td>{$this->translate("document type")}</td><td>{$detail['down_type_code']}</td>
+                    </tr>
+                    <tr>
+                        <td>{$this->translate("last updated time")}</td><td>{$detail['d_updatetime']}</td>
+                    </tr>
+                </table>
+                <div class="d_side">
+                   <a href="{$this->url('download',['id'=>$detail['p_id']])}">download</a>
+                    </div>
+            </div>
+        </div>
+    </div>

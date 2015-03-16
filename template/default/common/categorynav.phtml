@@ -1,0 +1,18 @@
+<ul class="navbar header-catnav">
+    {$categorynav=$this->categorynav()}
+    {if isset($cid)}
+          {$cid=$cid}
+    {else}
+          {$cid=$categorynav->getCurCategoryId()}
+    {/if}
+
+    {foreach $categorynav->getAllCategory() as $nav}
+    <li class="{if $cid&&$cid==$nav['c_id']} active{/if}">
+        <a href="{$this->url('category',['id'=>$nav['c_id']])}" >
+            {$icon="/images/{$nav['c_folder']}/{$nav['c_folder']}_small.png"}
+            <img src="{$this->basePath({$icon})}" class="sicon"/>
+            <span class="name">{$nav['c_code']}</span>
+        </a>
+    </li>
+    {/foreach}
+</ul>

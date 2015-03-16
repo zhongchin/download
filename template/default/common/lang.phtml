@@ -1,0 +1,14 @@
+<div class="">
+    <dl>
+<?php
+ foreach($this->langs as $lang){
+     if($lang['is_default']){
+         echo "<dt class='checked'>{$lang['abbr_name']}</dt>";
+     }else{
+         echo "<dd>{$lang['abbr_name']}</dd>";
+     }
+
+ }
+?>
+    </dl>
+ </div>

@@ -1,0 +1,21 @@
+<div class="searchbox">
+    <form action="{$this->url('search')}">
+        <div class="scr_module">
+            <div class="scr_txt">
+                <input type="text" name="search_txt" class="search_txt" placeholder="search" value="">
+            </div>
+            <button class="sbtn" value="search"><span class="sbtn-icon"></span><span>search</span></button>
+        </div>
+           {if isset($data) && !empty($data)}
+
+            <div class="searchkey">
+             {foreach $data as $key}
+                    <label class="hotkey">
+                        <a href="{$this->url('search', ['id' => $key['p_id']])}">{$key['keyword']}</a>
+                    </label>
+                {/foreach}
+            </div>
+       {/if}
+
+    </form>
+</div>

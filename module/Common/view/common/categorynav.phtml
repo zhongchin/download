@@ -1,0 +1,11 @@
+<ul class="navbar header-catnav">
+  <?php
+  $categorynav=$this->categorynav();
+  $cid=isset($cid)?$cid:$categorynav->getCurCategoryId();
+  foreach($categorynav->getAllCategory() as $nav):?>
+      <li  class="<?php if($cid&&$cid==$nav['c_id']){echo 'active';}?>">
+          <a href="<?php echo $this->url('category',array('id'=>$nav['c_id'])); ?>" >
+              <img src="<?php echo $this->basepath('/images/'.$nav['c_folder'].'/'.$nav['c_folder'].'_small.png')?>" class="sicon"/>
+             <span class="name"><?php echo $nav['c_code'];?></span></a></li>
+    <?php endforeach;?>
+</ul>
